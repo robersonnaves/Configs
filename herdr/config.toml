@@ -1,0 +1,21 @@
+onboarding = false
+[ui.toast]
+delivery = "herdr"
+
+[ui]
+show_agent_labels_on_pane_borders = true
+
+agent_panel_sort = "priority"
+[experimental]
+switch_ascii_input_source_in_prefix = true
+
+[theme]
+name = "solarized-light"
+auto_switch = false
+
+[keys]
+prefix = "ctrl+s"
+reload_config = "prefix+r"
+split_vertical = "prefix+shift+backslash"
+split_horizontal = "prefix+minus"
+goto = "prefix+g"

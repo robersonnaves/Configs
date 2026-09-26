@@ -1,0 +1,20 @@
+
+# eza aliases
+alias ls='eza'
+alias l='eza -l'
+alias ll='eza -l'
+alias la='eza -la'
+alias l.='eza -d .*'
+
+#podman
+alias pms='podman machine start'
+alias pcu='podman compose up -d'
+alias pcd='podman compose down'
+
+
+#suffix aliases
+alias -s md='$EDITOR'
+alias -s cs='code'
+alias -s json='code'
+
+alias docker=podman

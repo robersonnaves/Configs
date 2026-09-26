@@ -1,0 +1,6 @@
+*.log
+*.sock
+*.bak
+.DS_Store
+herdr/session.json
+zsh/.zsh_history
