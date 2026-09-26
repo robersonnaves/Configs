@@ -47,6 +47,10 @@ O script pode ser executado mais de uma vez: tudo o que já estiver instalado é
 5. **Configs**: copia os arquivos para os destinos. Se já existir um arquivo diferente no destino, ele é salvo antes em
    `~/.config-backup-<data>/`.
 
+   Os arquivos do repositório guardam caminhos absolutos da máquina de origem (ex.: `/Users/robersonnaves/.local/bin`
+   no `.zshrc`). Na cópia, todo caminho `/Users/<usuário>` ou `/home/<usuário>` é trocado pela home do usuário que
+   está rodando o script (`$HOME`), então a restauração funciona com qualquer nome de usuário. O repositório não é alterado.
+
 ## Passos manuais
 
 - `~/.secrets_ai` (variáveis sensíveis carregadas pelo `.zshrc`) não fica no repositório: recrie-o manualmente.

@@ -70,16 +70,22 @@ install_oh_my_zsh() {
 }
 
 install_file() {
-  local src="$1" dst="$2"
+  local src="$1" dst="$2" rendered
   mkdir -p "$(dirname "$dst")"
 
-  if [ -e "$dst" ] && ! cmp -s "$src" "$dst"; then
+  # os arquivos guardam caminhos absolutos da home de origem (ex.: /Users/robersonnaves);
+  # troca qualquer /Users/<usuario> ou /home/<usuario> pela home do usuario atual
+  rendered="$(mktemp)"
+  sed -E '/\/Users\/Shared/!s#/(Users|home)/[^/"'\'' :$]+#'"$HOME"'#g' "$src" > "$rendered"
+
+  if [ -e "$dst" ] && ! cmp -s "$rendered" "$dst"; then
     mkdir -p "$BACKUP_DIR/$(dirname "${dst#"$HOME"/}")"
     cp "$dst" "$BACKUP_DIR/${dst#"$HOME"/}"
     echo "backup: $dst -> $BACKUP_DIR/${dst#"$HOME"/}"
   fi
 
-  cp "$src" "$dst"
+  cp "$rendered" "$dst"
+  rm -f "$rendered"
   echo "instalado: $dst"
 }
 
